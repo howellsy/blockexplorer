@@ -11,7 +11,6 @@ const settings = {
   network: Network.ETH_MAINNET,
 };
 
-
 // In this week's lessons we used ethers.js. Here we are using the
 // Alchemy SDK is an umbrella library with several different packages.
 //
@@ -20,7 +19,7 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 function App() {
-  const [blockNumber, setBlockNumber] = useState();
+  const [blockNumber, setBlockNumber] = useState<number>();
 
   useEffect(() => {
     async function getBlockNumber() {
@@ -29,6 +28,17 @@ function App() {
 
     getBlockNumber();
   });
+
+  useEffect(() => {
+    async function getBlock() {
+      if (blockNumber) {
+        const block = await alchemy.core.getBlock(blockNumber);
+        console.log(block);
+      }
+    }
+
+    getBlock();
+  }, [blockNumber]);
 
   return <div className="App">Block Number: {blockNumber}</div>;
 }
