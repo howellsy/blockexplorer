@@ -5,11 +5,14 @@ import {
   Grid,
 } from '@mui/material';
 import { useAlchemy } from '../../particles/AlchemyProvider';
+import { TransactionResponse } from 'alchemy-sdk';
+import { TransactionsList } from '../../organisms/TransactionsList';
 
 const Dashboard: FC = () => {
   const { alchemySdk } = useAlchemy();
-  
+
   const [blockNumber, setBlockNumber] = useState<number>();
+  const [latestTransactions, setLatestTransactions] = useState<TransactionResponse[]>();
 
   useEffect(() => {
     async function getBlockNumber() {
@@ -17,7 +20,18 @@ const Dashboard: FC = () => {
     }
 
     getBlockNumber();
-  });
+  }, [blockNumber, alchemySdk.core]);
+
+  useEffect(() => {
+    async function getLatestTransactions() {
+      const block = await alchemySdk.core.getBlockWithTransactions(blockNumber!);
+
+      setLatestTransactions(block.transactions.slice(0, 6));
+    }
+    if (blockNumber) {
+      getLatestTransactions();
+    }
+  }, [blockNumber, alchemySdk.core]);
 
   return (
     <>
@@ -41,7 +55,11 @@ const Dashboard: FC = () => {
               md={6}
               xs={12}
             >
-              Other content goes here
+              {
+                latestTransactions && (
+                  <TransactionsList title="Latest Transactions" transactions={latestTransactions} />
+                )
+              }
             </Grid>
           </Grid>
         </Container>
