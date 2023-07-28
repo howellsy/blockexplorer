@@ -7,12 +7,15 @@ import {
 import { useAlchemy } from '../../particles/AlchemyProvider';
 import { TransactionResponse } from 'alchemy-sdk';
 import { TransactionsList } from '../../organisms/TransactionsList';
+import { BlocksList } from '../../organisms/BlocksList';
+import { useGetLatestBlocks } from '../../../hooks';
 
 const Dashboard: FC = () => {
   const { alchemySdk } = useAlchemy();
 
   const [blockNumber, setBlockNumber] = useState<number>();
   const [latestTransactions, setLatestTransactions] = useState<TransactionResponse[]>();
+  const latestBlocks = useGetLatestBlocks(6);
 
   useEffect(() => {
     async function getBlockNumber() {
@@ -48,7 +51,7 @@ const Dashboard: FC = () => {
               md={6}
               xs={12}
             >
-              {blockNumber}
+              <BlocksList title="Latest Blocks" blocks={latestBlocks} />
             </Grid>
             <Grid
               item
