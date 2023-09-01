@@ -4,11 +4,14 @@ import {
 } from "react-router-dom";
 import AlchemyProvider from './components/particles/AlchemyProvider';
 import { router } from './utils';
+import StoreProvider from './components/providers/StoreProvider';
 
 function App() {
   return (
     <AlchemyProvider>
-      <RouterProvider router={router} />
+      <StoreProvider>
+        <RouterProvider router={router} />
+      </StoreProvider>
     </AlchemyProvider>
   );
 }
