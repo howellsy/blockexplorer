@@ -6,20 +6,21 @@ import {
 } from '@mui/material';
 import { TransactionsList } from '../../organisms/TransactionsList';
 import { BlocksList } from '../../organisms/BlocksList';
-import { useAppDispatch, useAppSelector,useGetTransactions } from '../../../hooks';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { fetchLatestBlocks } from '../../../services/latestBlocks';
-
+import { fetchLatestTransactions } from '../../../services/latestTransactions';
 
 const Dashboard: FC = () => {
   const dispatch = useAppDispatch();
-  const latestTransactions = useGetTransactions(6);
 
   useEffect(() => {
     dispatch(fetchLatestBlocks());
+    dispatch(fetchLatestTransactions());
   }, [dispatch]);
 
   const {
     latestBlocks: { data: latestBlocks },
+    latestTransactions: { data: latestTransactions },
   } = useAppSelector((state) => state);
 
   return (
@@ -44,10 +45,8 @@ const Dashboard: FC = () => {
               md={6}
               xs={12}
             >
-              {
-                latestTransactions && (
-                  <TransactionsList title="Latest Transactions" transactions={latestTransactions} />
-                )
+              {latestTransactions?.transactions &&
+                <TransactionsList title="Latest Transactions" transactions={latestTransactions.transactions} />
               }
             </Grid>
           </Grid>
