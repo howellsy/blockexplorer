@@ -3,3 +3,5 @@ export interface CommonState<D = unknown, E = string | undefined> {
   error?: E;
   status: 'idle' | 'loading' | 'success' | 'error';
 }
+
+export type { Block, TransactionResponse } from 'alchemy-sdk';

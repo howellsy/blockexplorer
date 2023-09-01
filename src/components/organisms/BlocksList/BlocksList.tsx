@@ -1,5 +1,5 @@
 import { Box, Card, CardHeader, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
-import { Block } from 'alchemy-sdk';
+import { Block } from '../../../services/types';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import { FC } from 'react';
 import { DateTime } from 'luxon';

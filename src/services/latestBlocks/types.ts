@@ -1,5 +1,4 @@
-import { Block } from 'alchemy-sdk';
-import { CommonState } from '../types';
+import { Block, CommonState } from '../types';
 
 export interface LatestBlocks {
   blocks: Block[];

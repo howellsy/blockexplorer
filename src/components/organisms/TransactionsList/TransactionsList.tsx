@@ -11,7 +11,7 @@ import {
   Typography
 } from '@mui/material';
 import ReceiptIcon from '@mui/icons-material/Receipt';
-import { TransactionResponse } from 'alchemy-sdk';
+import { TransactionResponse } from '../../../services/types';
 import { formatEtherWithUnit, truncateAddress } from '../../../utils';
 
 export interface TransactionsListProps {
