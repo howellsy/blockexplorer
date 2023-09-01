@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardHeader,
   Table,
@@ -13,6 +12,7 @@ import { Block } from '../../../services/types';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import { FC } from 'react';
 import { DateTime } from 'luxon';
+import { truncateAddress } from '../../../utils';
 
 export interface BlocksListProps {
   blocks: Block[];
@@ -25,30 +25,33 @@ const BlocksList: FC<BlocksListProps> = ({ blocks, title, ...props }) => (
     <Table>
       <TableHead className="visually-hidden">
         <TableRow>
+          <TableCell />
           <TableCell>Block Number</TableCell>
-          <TableCell>Number of transactions</TableCell>
-          <TableCell>Value</TableCell>
+          <TableCell>Fee Recipient</TableCell>
+          <TableCell>Number of Transactions</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {blocks.map((block) => (
           <TableRow key={`block${block.number}`}>
-            <TableCell>
-              <Box sx={{ display: 'flex', columnGap: '10px', alignItems: 'center' }}>
-                <InventoryIcon />
-                <Typography color="textSecondary" variant="body2">
-                  <div>{block.number}</div>
-                </Typography>
-              </Box>
+            <TableCell width={25}>
+              <InventoryIcon />
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="body2">
-                <div>{block.transactions.length} txns</div>
+                <div>{block.number}</div>
+                <div>{DateTime.fromSeconds(block.timestamp).toRelative()}</div>
               </Typography>
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="body2">
-                <div>{DateTime.fromSeconds(block.timestamp).toRelative()}</div>
+                <div>Fee Recipient</div>
+                <div>{truncateAddress(block.miner)}</div>
+              </Typography>
+            </TableCell>
+            <TableCell>
+              <Typography color="textSecondary" variant="body2">
+                <div>{block.transactions.length} txns</div>
               </Typography>
             </TableCell>
           </TableRow>

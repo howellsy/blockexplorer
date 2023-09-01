@@ -23,26 +23,26 @@ const TransactionsList: FC<TransactionsListProps> = ({ transactions, title, ...p
   <Card {...props}>
     <CardHeader title={title} />
     <Table>
-      <TableHead>
+      <TableHead className="visually-hidden">
         <TableRow>
           <TableCell />
           <TableCell>Txn Hash</TableCell>
           <TableCell>From/To</TableCell>
-          <TableCell>Value</TableCell>
+          <TableCell>Amount</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {transactions.map((transaction) => (
           <TableRow key={`tx${transaction.hash}`}>
-            <TableCell width={20}>
+            <TableCell width={25}>
               <ReceiptIcon />
             </TableCell>
-            <TableCell width={100}>
+            <TableCell>
               <Typography color="textSecondary" variant="body2">
                 <div title={transaction.hash}>{truncateAddress(transaction.hash)}</div>
               </Typography>
             </TableCell>
-            <TableCell width={100}>
+            <TableCell>
               <Typography color="textSecondary" title={transaction.from} variant="body2">
                 From {truncateAddress(transaction.from)}
               </Typography>
