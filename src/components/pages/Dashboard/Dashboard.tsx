@@ -1,9 +1,5 @@
 import { FC, useEffect } from 'react';
-import {
-  Box,
-  Container,
-  Grid,
-} from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 import { TransactionsList } from '../../organisms/TransactionsList';
 import { BlocksList } from '../../organisms/BlocksList';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
@@ -25,29 +21,21 @@ const Dashboard: FC = () => {
 
   return (
     <>
-      <Box
-        component="main"
-      >
+      <Box component="main">
         <Container maxWidth="xl">
-          <Grid
-            container
-            spacing={4}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              {latestBlocks?.blocks && <BlocksList title="Latest Blocks" blocks={latestBlocks.blocks} />}
+          <Grid container spacing={4}>
+            <Grid item md={6} xs={12}>
+              {latestBlocks?.blocks && (
+                <BlocksList title="Latest Blocks" blocks={latestBlocks.blocks} />
+              )}
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              {latestTransactions?.transactions &&
-                <TransactionsList title="Latest Transactions" transactions={latestTransactions.transactions} />
-              }
+            <Grid item md={6} xs={12}>
+              {latestTransactions?.transactions && (
+                <TransactionsList
+                  title="Latest Transactions"
+                  transactions={latestTransactions.transactions}
+                />
+              )}
             </Grid>
           </Grid>
         </Container>

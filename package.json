@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src/**/*.{ts,tsx}",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "yarn lint --fix && yarn format",
+    "format": "npx prettier -c src/**/*{ts,tsx} --write",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

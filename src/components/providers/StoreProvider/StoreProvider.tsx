@@ -7,9 +7,7 @@ interface StoreProviderProps {
 }
 
 const StoreProvider = ({ children }: StoreProviderProps) => (
-  <Provider store={store}>
-      {children}
-  </Provider>
+  <Provider store={store}>{children}</Provider>
 );
 
 export default StoreProvider;
