@@ -1,18 +1,13 @@
 import './App.css';
-import {
-  RouterProvider,
-} from "react-router-dom";
-import AlchemyProvider from './components/particles/AlchemyProvider';
+import { RouterProvider } from 'react-router-dom';
 import { router } from './utils';
 import StoreProvider from './components/providers/StoreProvider';
 
 function App() {
   return (
-    <AlchemyProvider>
-      <StoreProvider>
-        <RouterProvider router={router} />
-      </StoreProvider>
-    </AlchemyProvider>
+    <StoreProvider>
+      <RouterProvider router={router} />
+    </StoreProvider>
   );
 }
 
