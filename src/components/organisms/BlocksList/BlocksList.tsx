@@ -28,7 +28,7 @@ const BlocksList: FC<BlocksListProps> = ({ blocks, title, ...props }) => (
       </TableHead>
       <TableBody>
         {blocks.map((block) => (
-          <TableRow key={block.number}>
+          <TableRow key={`block${block.number}`}>
             <TableCell>
               <Box sx={{ display: 'flex', columnGap: '10px', alignItems: 'center' }}>
                 <InventoryIcon />

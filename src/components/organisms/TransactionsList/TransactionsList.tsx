@@ -40,7 +40,7 @@ const TransactionsList: FC<TransactionsListProps> = ({ transactions, title, ...p
       <TableBody>
         {transactions.map((transaction) => (
           <TableRow
-            key={transaction.blockHash}
+            key={`tx${transaction.hash}`}
           >
             <TableCell width={20}><ReceiptIcon /></TableCell>
             <TableCell width={100}>
