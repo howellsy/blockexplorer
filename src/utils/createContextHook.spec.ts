@@ -16,4 +16,3 @@ describe('createContextHook', () => {
     expect(useContext()).toBe('test');
   });
 });
-

@@ -6,6 +6,8 @@ describe('truncateAddress', () => {
   });
 
   it('should not truncate an address that is too short', () => {
-    expect(truncateAddress('0x1234567890abcdef1234567890abcdef123456')).toEqual('0x1234567890abcdef1234567890abcdef123456');
+    expect(truncateAddress('0x1234567890abcdef1234567890abcdef123456')).toEqual(
+      '0x1234567890abcdef1234567890abcdef123456'
+    );
   });
 });
