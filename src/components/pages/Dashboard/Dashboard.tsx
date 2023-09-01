@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -6,11 +6,21 @@ import {
 } from '@mui/material';
 import { TransactionsList } from '../../organisms/TransactionsList';
 import { BlocksList } from '../../organisms/BlocksList';
-import { useGetLatestBlocks, useGetTransactions } from '../../../hooks';
+import { useAppDispatch, useAppSelector,useGetTransactions } from '../../../hooks';
+import { fetchLatestBlocks } from '../../../services/latestBlocks';
+
 
 const Dashboard: FC = () => {
-  const latestBlocks = useGetLatestBlocks(6);
+  const dispatch = useAppDispatch();
   const latestTransactions = useGetTransactions(6);
+
+  useEffect(() => {
+    dispatch(fetchLatestBlocks());
+  }, [dispatch]);
+
+  const {
+    latestBlocks: { data: latestBlocks },
+  } = useAppSelector((state) => state);
 
   return (
     <>
@@ -27,7 +37,7 @@ const Dashboard: FC = () => {
               md={6}
               xs={12}
             >
-              <BlocksList title="Latest Blocks" blocks={latestBlocks} />
+              {latestBlocks?.blocks && <BlocksList title="Latest Blocks" blocks={latestBlocks.blocks} />}
             </Grid>
             <Grid
               item
