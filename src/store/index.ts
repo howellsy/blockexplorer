@@ -7,13 +7,16 @@ import {
   latestTransactionsSlice as latestTransactionsReducer,
   LatestTransactionsState,
 } from '../services/latestTransactions';
+import { blockDetailsSlice as blockDetailsReducer, BlockDetailsState } from '../services/block';
 
 export interface RootState {
-  latestTransactions: LatestTransactionsState;
+  blockDetails: BlockDetailsState;
   latestBlocks: LatestBlocksState;
+  latestTransactions: LatestTransactionsState;
 }
 
 const reducersMap: ReducersMapObject<RootState> = {
+  blockDetails: blockDetailsReducer,
   latestBlocks: latestBlocksReducer,
   latestTransactions: latestTransactionsReducer,
 };
