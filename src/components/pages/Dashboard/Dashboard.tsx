@@ -23,7 +23,7 @@ const Dashboard: FC = () => {
     <>
       <Box component="main">
         <Container maxWidth="xl">
-          <Grid container spacing={4}>
+          <Grid container spacing={4} pb={4} pt={4}>
             <Grid item md={6} xs={12}>
               {latestBlocks?.blocks && (
                 <BlocksList title="Latest Blocks" blocks={latestBlocks.blocks} />
