@@ -13,6 +13,7 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import { FC } from 'react';
 import { DateTime } from 'luxon';
 import { truncateAddress } from '../../../utils';
+import { NavPaths } from '../../../config';
 
 export interface BlocksListProps {
   blocks: Block[];
@@ -39,7 +40,9 @@ const BlocksList: FC<BlocksListProps> = ({ blocks, title, ...props }) => (
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="body2">
-                <div>{block.number}</div>
+                <div>
+                  <a href={`${NavPaths.BLOCK}/${block.number}`}>{block.number}</a>
+                </div>
                 <div>{DateTime.fromSeconds(block.timestamp).toRelative()}</div>
               </Typography>
             </TableCell>
