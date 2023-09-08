@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <Block />,
   },
   {
-    path: `${NavPaths.TRANSACTION}/:id`,
+    path: `${NavPaths.TRANSACTION}/:hash`,
     element: <Transaction />,
   },
 ]);
