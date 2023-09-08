@@ -10,7 +10,7 @@ import {
 export interface DetailsTableRowData {
   label: string;
   tooltip: string;
-  value: string | number;
+  value: string | number | React.ReactNode;
   hasSeparator?: boolean;
 }
 

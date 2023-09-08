@@ -3,6 +3,7 @@ import { Box, Container, Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { fetchTransactionDetails } from '../../../services/transaction';
+import { TransactionDetails } from '../../organisms/TransactionDetails';
 
 const Transaction: FC = () => {
   const { hash } = useParams();
@@ -23,8 +24,9 @@ const Transaction: FC = () => {
         <Container maxWidth="xl">
           <Grid container spacing={4} pt={4}>
             <Grid item xs={12}>
-              Transaction hash {hash}
-              {transactionDetails && <pre>{JSON.stringify(transactionDetails, null, 2)}</pre>}
+              {transactionDetails && (
+                <TransactionDetails transaction={transactionDetails.transaction} />
+              )}
             </Grid>
           </Grid>
         </Container>
