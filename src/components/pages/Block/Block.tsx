@@ -1,9 +1,22 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Box, Container, Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../hooks';
+import { fetchBlockDetails } from '../../../services/block';
+import { BlockDetails } from '../../organisms/BlockDetails';
 
 const Block: FC = () => {
   const { id } = useParams();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (!id) return;
+    dispatch(fetchBlockDetails(parseInt(id)));
+  }, [dispatch, id]);
+
+  const {
+    blockDetails: { data: blockDetails },
+  } = useAppSelector((state) => state);
 
   return (
     <>
@@ -11,7 +24,7 @@ const Block: FC = () => {
         <Container maxWidth="xl">
           <Grid container spacing={4} pt={4}>
             <Grid item xs={12}>
-              Block ID = {id}
+              {blockDetails && <BlockDetails block={blockDetails.block} />}
             </Grid>
           </Grid>
         </Container>
