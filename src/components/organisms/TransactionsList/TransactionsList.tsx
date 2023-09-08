@@ -13,6 +13,7 @@ import {
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import { TransactionResponse } from '../../../services/types';
 import { formatEtherWithUnit, truncateAddress } from '../../../utils';
+import { NavPaths } from '../../../config';
 
 export interface TransactionsListProps {
   transactions: TransactionResponse[];
@@ -39,7 +40,11 @@ const TransactionsList: FC<TransactionsListProps> = ({ transactions, title, ...p
             </TableCell>
             <TableCell>
               <Typography color="textSecondary" variant="body2">
-                <div title={transaction.hash}>{truncateAddress(transaction.hash)}</div>
+                <div title={transaction.hash}>
+                  <a href={`${NavPaths.TRANSACTION}/${transaction.hash}`}>
+                    {truncateAddress(transaction.hash)}
+                  </a>
+                </div>
               </Typography>
             </TableCell>
             <TableCell>
