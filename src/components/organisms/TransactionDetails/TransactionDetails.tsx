@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { TransactionResponse } from '../../../services/types';
 import { DetailsTable, DetailsTableRowData } from '../DetailsTable';
-import { Card, CardContent, CardHeader } from '@mui/material';
+import { Card, CardContent, CardHeader, Link } from '@mui/material';
 import { Utils } from '../../../utils';
 import { NavPaths } from '../../../config';
 
@@ -22,8 +22,8 @@ const transactionDetailsRows = (transaction: TransactionResponse): DetailsTableR
       'Number of the block in which the transaction is recorded. Block confirmations indicate how many blocks have been added since the transaction was produced.',
     value: transaction.blockNumber ? (
       <>
-        <a href={`${NavPaths.BLOCK}/${transaction.blockNumber}`}>{transaction.blockNumber}</a> (
-        {transaction.confirmations} confirmations)
+        <Link href={`${NavPaths.BLOCK}/${transaction.blockNumber}`}>{transaction.blockNumber}</Link>
+        <span> ({transaction.confirmations} confirmations)</span>
       </>
     ) : (
       'Unavailable'

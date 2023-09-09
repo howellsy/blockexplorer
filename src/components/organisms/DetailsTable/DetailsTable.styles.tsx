@@ -20,7 +20,7 @@ export const DetailsTableRow = styled(TableRow)`
     ${hasSeparator &&
     css`
       td {
-        border-top: 1px solid #ccc;
+        border-top: 1px solid #e9ecef;
       }
     `}
   `}
