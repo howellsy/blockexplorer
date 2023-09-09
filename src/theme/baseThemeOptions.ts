@@ -27,6 +27,13 @@ export const baseThemeOptions: ThemeOptions = {
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: '6px',
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         '*': {
