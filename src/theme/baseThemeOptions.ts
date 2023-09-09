@@ -1,4 +1,5 @@
 import { ThemeOptions } from '@mui/material';
+import customPalette from './customPalette';
 
 export const baseThemeOptions: ThemeOptions = {
   components: {
@@ -8,19 +9,21 @@ export const baseThemeOptions: ThemeOptions = {
       },
       styleOverrides: {
         root: {
-          boxShadow: 'rgb(0 0 0 / 4%) 0px 5px 22px, rgb(0 0 0 / 3%) 0px 0px 0px 0.5px',
+          border: '1px solid #e9ecef',
+          borderRadius: '12px',
+          boxShadow: '0 0.5rem 1.2rem rgb(189 197 209 / 20%)',
         },
       },
     },
     MuiCardHeader: {
       defaultProps: {
         titleTypographyProps: {
-          variant: 'h6',
+          variant: 'h2',
         },
       },
       styleOverrides: {
         root: {
-          borderBottom: '1px solid #e0e0e0',
+          borderBottom: '1px solid #e9ecef',
         },
       },
     },
@@ -50,11 +53,13 @@ export const baseThemeOptions: ThemeOptions = {
     MuiTableCell: {
       styleOverrides: {
         root: {
+          borderColor: '#e9ecef',
           padding: '15px 16px',
         },
       },
     },
   },
+  palette: { ...customPalette },
   typography: {
     fontFamily:
       '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
@@ -70,27 +75,7 @@ export const baseThemeOptions: ThemeOptions = {
     },
     h2: {
       fontWeight: 700,
-      fontSize: '3rem',
-      lineHeight: 1.375,
-    },
-    h3: {
-      fontWeight: 700,
-      fontSize: '2.25rem',
-      lineHeight: 1.375,
-    },
-    h4: {
-      fontWeight: 700,
-      fontSize: '2rem',
-      lineHeight: 1.375,
-    },
-    h5: {
-      fontWeight: 600,
-      fontSize: '1.5rem',
-      lineHeight: 1.375,
-    },
-    h6: {
-      fontWeight: 600,
-      fontSize: '1.125rem',
+      fontSize: '.9375rem',
       lineHeight: 1.375,
     },
   },
