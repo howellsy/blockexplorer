@@ -50,6 +50,13 @@ export const baseThemeOptions: ThemeOptions = {
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: '#0784c3',
+        },
+      },
+    },
     MuiTableCell: {
       styleOverrides: {
         root: {
