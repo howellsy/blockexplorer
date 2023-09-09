@@ -2,6 +2,8 @@
 
 A simple Ethereum block explorer built for Alchemy's Ethereum Developer Bootcamp course using the [Alchemy SDK](https://docs.alchemy.com/reference/alchemy-sdk-quickstart). 
 
+<img width="1169" alt="image" src="https://github.com/howellsy/blockexplorer/assets/82221637/adcde044-003a-4dda-8e19-586b18dc95d9">
+
 ## Getting Started
 
 Create an empty `.env` file in the base directory of this project.
