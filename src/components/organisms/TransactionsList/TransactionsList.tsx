@@ -10,7 +10,7 @@ import {
   TableRow,
   Tooltip,
   Typography,
-} from '@mui/material';
+} from '../../atoms';
 import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import { TransactionResponse } from '../../../services/types';
 import { formatEtherWithUnit, truncateAddress } from '../../../utils';

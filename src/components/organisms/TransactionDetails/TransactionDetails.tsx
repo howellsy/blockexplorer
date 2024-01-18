@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { TransactionResponse } from '../../../services/types';
 import { DetailsTable, DetailsTableRowData } from '../DetailsTable';
-import { Card, CardContent, CardHeader, Link } from '@mui/material';
+import { Card, CardContent, CardHeader, Link } from '../../atoms';
 import { Utils } from '../../../utils';
 import { NavPaths } from '../../../config';
 

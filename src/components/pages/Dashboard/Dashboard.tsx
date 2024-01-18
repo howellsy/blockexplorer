@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid } from '../../atoms';
 import { TransactionsList } from '../../organisms/TransactionsList';
 import { BlocksList } from '../../organisms/BlocksList';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
@@ -20,27 +20,25 @@ const Dashboard: FC = () => {
   } = useAppSelector((state) => state);
 
   return (
-    <>
-      <Box component="main">
-        <Container maxWidth="xl">
-          <Grid container spacing={4} pb={4} pt={4}>
-            <Grid item md={6} xs={12}>
-              {latestBlocks?.blocks && (
-                <BlocksList title="Latest Blocks" blocks={latestBlocks.blocks} />
-              )}
-            </Grid>
-            <Grid item md={6} xs={12}>
-              {latestTransactions?.transactions && (
-                <TransactionsList
-                  title="Latest Transactions"
-                  transactions={latestTransactions.transactions}
-                />
-              )}
-            </Grid>
+    <Box component="main">
+      <Container maxWidth="xl">
+        <Grid container spacing={4} pb={4} pt={4}>
+          <Grid item md={6} xs={12}>
+            {latestBlocks?.blocks && (
+              <BlocksList title="Latest Blocks" blocks={latestBlocks.blocks} />
+            )}
           </Grid>
-        </Container>
-      </Box>
-    </>
+          <Grid item md={6} xs={12}>
+            {latestTransactions?.transactions && (
+              <TransactionsList
+                title="Latest Transactions"
+                transactions={latestTransactions.transactions}
+              />
+            )}
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 

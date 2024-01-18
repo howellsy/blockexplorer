@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid } from '../../atoms';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { fetchBlockDetails } from '../../../services/block';
@@ -19,17 +19,15 @@ const Block: FC = () => {
   } = useAppSelector((state) => state);
 
   return (
-    <>
-      <Box component="main">
-        <Container maxWidth="xl">
-          <Grid container spacing={4} pt={4}>
-            <Grid item xs={12}>
-              {blockDetails && <BlockDetails block={blockDetails.block} />}
-            </Grid>
+    <Box component="main">
+      <Container maxWidth="xl">
+        <Grid container spacing={4} pt={4}>
+          <Grid item xs={12}>
+            {blockDetails && <BlockDetails block={blockDetails.block} />}
           </Grid>
-        </Container>
-      </Box>
-    </>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 

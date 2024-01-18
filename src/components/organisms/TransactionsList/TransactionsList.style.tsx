@@ -1,4 +1,5 @@
-import { Chip, TableBody, styled } from '@mui/material';
+import { styled } from '@mui/material';
+import { Chip, TableBody } from '../../atoms';
 
 export const AmountChip = styled(Chip)`
   font-size: 0.6rem;

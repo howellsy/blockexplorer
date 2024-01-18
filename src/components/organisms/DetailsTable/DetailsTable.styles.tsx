@@ -1,4 +1,5 @@
-import { TableBody, TableCell, TableRow, css, styled } from '@mui/material';
+import { css, styled } from '@mui/material';
+import { TableBody, TableCell, TableRow } from '../../atoms';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 export const DetailsTableBody = styled(TableBody)`

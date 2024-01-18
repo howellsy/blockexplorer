@@ -9,7 +9,7 @@ import {
   TableRow,
   Tooltip,
   Typography,
-} from '@mui/material';
+} from '../../atoms';
 import { Block } from '../../../services/types';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import { FC } from 'react';

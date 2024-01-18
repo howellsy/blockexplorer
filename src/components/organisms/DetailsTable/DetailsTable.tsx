@@ -1,4 +1,4 @@
-import { Table, Tooltip } from '@mui/material';
+import { Table, Tooltip } from '../../atoms';
 import { FC } from 'react';
 import {
   DetailsTableBody,

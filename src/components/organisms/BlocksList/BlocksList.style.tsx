@@ -1,4 +1,5 @@
-import { TableBody, styled } from '@mui/material';
+import { styled } from '@mui/material';
+import { TableBody } from '../../atoms';
 
 export const ListTableBody = styled(TableBody)`
   tr:first-child td {

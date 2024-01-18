@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from '@mui/material';
+import { Card, CardContent, CardHeader } from '../../atoms';
 import { FC } from 'react';
 import { DateTime } from 'luxon';
 import { Utils } from '../../../utils';

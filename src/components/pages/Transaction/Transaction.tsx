@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid } from '../../atoms';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks';
 import { fetchTransactionDetails } from '../../../services/transaction';
@@ -19,19 +19,17 @@ const Transaction: FC = () => {
   } = useAppSelector((state) => state);
 
   return (
-    <>
-      <Box component="main">
-        <Container maxWidth="xl">
-          <Grid container spacing={4} pt={4}>
-            <Grid item xs={12}>
-              {transactionDetails && (
-                <TransactionDetails transaction={transactionDetails.transaction} />
-              )}
-            </Grid>
+    <Box component="main">
+      <Container maxWidth="xl">
+        <Grid container spacing={4} pt={4}>
+          <Grid item xs={12}>
+            {transactionDetails && (
+              <TransactionDetails transaction={transactionDetails.transaction} />
+            )}
           </Grid>
-        </Container>
-      </Box>
-    </>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
